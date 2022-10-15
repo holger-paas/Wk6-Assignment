@@ -5,24 +5,39 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+   /*
+    * Deck class:
+    * attributes - list of card objects
+    * methods - draw, shuffle, createDeck
+    * helper methods -  valueToSuit, valueToText
+    */
+   
+   // ATTRIBUTES
    
    private List<Card> cards = new ArrayList<Card>();
    
+   // CONSTRUCTOR  
+   
    public Deck() {
+      // calls createDeck() method to create standard 52-card deck
       createDeck();      
    }
    
+   // METHODS
+   
    public Card draw() {
+      // returns the top card by removing it from the deck
       return cards.remove(cards.size() - 1);
    }
    
    public void shuffle() {
+      // puts Card objects in ArrayList 'cards' in random order
       Collections.shuffle(cards);
-      
    }
    
-   
    private void createDeck() {
+      // sets distinct value and name pairs of new Card objects and
+      // adds them to the ArrayList 'cards' to create a 52-card deck
       for (int i = 0; i <= 3; i++) {
          for (int j = 2; j <= 14; j++) {
             Card card = new Card();
@@ -34,7 +49,10 @@ public class Deck {
       }
    }
    
+   // HELPER METHODS
+   
    private String valueToSuit(int suitValue) {
+      // Converts numerical value to suit and returns it.
       String suitText;      
       switch (suitValue) {
       case 0:
@@ -56,6 +74,7 @@ public class Deck {
    }
    
    private String valueToText(int value) {
+      // Converts numerical value to text and returns it.
       String valueText;      
       switch (value) {
       case 2:
@@ -102,5 +121,5 @@ public class Deck {
       }
       return valueText;
    }
-
+   
 }
